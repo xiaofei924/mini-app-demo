@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/main-page/main-page",
     "pages/tasks/tasks",
     "pages/cert-page/cert-page",
     "pages/hint-page-1/hint-page-1",

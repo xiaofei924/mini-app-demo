@@ -13,7 +13,7 @@ Page({
 
   onShow() {
     this.setData({
-      // autoplay: true
+      autoplay: true
     });
   },
 

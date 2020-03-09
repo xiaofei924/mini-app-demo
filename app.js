@@ -9,10 +9,30 @@ App({
     { text: '手机端领取开发体验证书', templateName: '', status: 'pending', date: null }
   ],
 
+  /**
+   * 第一次打开时调用
+   */
   onLaunch() {
     this.readData().then(() => {
       this.$event.emit('READY');
     });
+  },
+  /**
+   * 小程序启动，或从后台被重新打开
+  */
+  onShow(options) {
+    // 小程序启动，或从后台被重新打开
+  },
+  onHide() {
+    // 小程序从前台进入后台
+  },
+  onError(msg) {
+    // 小程序发生脚本错误或 API 调用出现报错
+    console.log(msg);
+  },
+  globalData: {
+    // 全局数据
+    name: 'alipay',
   },
 
   $event: new PubSub(),
@@ -88,16 +108,16 @@ App({
     // The source of truth
     // localStorage + remote userInfo -> this.tasks -> localStorage
     return Promise.all([this.loadTaskRecord(), this.readDataFromLocal()])
-    .then(([userInfo, _]) => {
-      if (userInfo) {
-        this.markTasksWithUserInfo(userInfo);
+      .then(([userInfo, _]) => {
+        if (userInfo) {
+          this.markTasksWithUserInfo(userInfo);
+          return this.tasks;
+        }
         return this.tasks;
-      }
-      return this.tasks;
-    })
-    .catch(err => {
-      console.error('[app] readData error - ', err);
-    })
+      })
+      .catch(err => {
+        console.error('[app] readData error - ', err);
+      })
   },
 
   uploadData(tasks) {
@@ -113,14 +133,14 @@ App({
 
   readDataFromLocal() {
     return this._readDataFromLocal()
-    .then(tasks => {
-      if (tasks) {
-        this.tasks = tasks;
-        return tasks;
-      } else {
-        return this._writeDataToLocal(this.tasks);
-      }
-    });
+      .then(tasks => {
+        if (tasks) {
+          this.tasks = tasks;
+          return tasks;
+        } else {
+          return this._writeDataToLocal(this.tasks);
+        }
+      });
   },
 
   writeDataToLocal(data) {
@@ -133,7 +153,7 @@ App({
       my.setStorage({
         key: 'progData',
         data,
-        success: function() {
+        success: function () {
           return resolve(data);
         },
         fail: () => {
