@@ -9,6 +9,7 @@ App({
     { text: '手机端领取开发体验证书', templateName: '', status: 'pending', date: null }
   ],
 
+
   /**
    * 第一次打开时调用
    */
@@ -32,7 +33,7 @@ App({
   },
   globalData: {
     // 全局数据
-    name: 'alipay',
+    name: '有金融app',
   },
 
   $event: new PubSub(),

@@ -1,0 +1,58 @@
+<!-- 列表渲染方式：
+  vue渲染列表：<ul id="example-1"><li v-for="item in items">
+    {{ item.message }}</li></ul>
+
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+
+  支付宝小程序渲染列表：<view a:for="{{device_list}}"></view> 
+
+Page({
+  data: {
+    device_list:[
+      {
+        title:'手机',
+      },
+      {
+        title:'电视',
+      },
+      {
+        title:'电脑',
+      },
+      {
+        title:'冰箱',
+      },
+    ]
+  },
+  onLoad() {},
+});
+  -->
+
+  <!-- a:for 用于列表渲染
+      a:if 用于条件渲染
+      {{}} 中可以添加js逻辑，常用！ -->
+<view class="page-content">
+  <view>---------简单列表渲染---------</view>
+  <view a:for="{{device_list}}" class="simple_list_container">
+    <view>
+  {{item.title}}
+    </view>
+    <view>
+  {{item.value}}
+    </view>
+  </view>
+
+  <view>---------类似recyclerview列表渲染---------</view>
+  <list>
+    <!-- <list-item thumb="https://gw.alipayobjects.com/zos/rmsportal/VBqNBOiGYkCjqocXjdUj.png" arrow="{{true}}">List Item -->
+    </list-item>
+  </list>
+
+</view>

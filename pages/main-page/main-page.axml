@@ -1,9 +1,7 @@
+<!-- 此页面为有金融demo主页面 -->
 <view class="page">
-<swiper indicator-dots="{{true}}">
-  <block a:for="{{['#4A90E2','#F5A623']}}">
-    <swiper-item>
-      <view style="background-color: {{item}};width:100%;height:300rpx"></view>
-    </swiper-item>
-  </block>
-</swiper>
+  <view class="page-content">
+    <view>{{appName}}</view>
+    <button class="button" size="default" type="primary" onTap="buttonClick">{{listBtnTxt}}</button>
+  </view>
 </view>

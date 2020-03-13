@@ -1,6 +1,18 @@
-page {
+.page {
   flex: 1;
-  display: flex;
-  background: #323239;
+  /* display: flex; */
+  background: #ffffff;
   font-family: "pingFang SC" "pingFang";
+  
+}
+.page-content {
+  margin-top: 50px;
+  /* box-sizing: border-box;
+  background: #FAFCFF;
+  border-radius: 16px;
+  box-sizing: border-box;
+  min-height: 85%;
+  position: relative;
+  padding-bottom: 125px;
+  overflow: hidden; */
 }
